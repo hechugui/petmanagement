@@ -16,6 +16,7 @@ package petmanagement.petmanagement.result;
 public class Result {
     /**
      * 响应状态码
+     * hello , it is a git test
      */
     private int code;
     /**
