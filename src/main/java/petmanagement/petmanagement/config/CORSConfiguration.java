@@ -29,6 +29,7 @@ public class CORSConfiguration extends WebMvcConfigurerAdapter
                 .allowedHeaders("*");
     }
 }
+//hello ,i edit it !!!!
 /*
 大家的CORSConfiguration都长上面那样，也不用改
 我们的CORSConfiguration配置类继承了WebMvcConfiugrationAdaper父类并且重写了addCorsMappings方法
