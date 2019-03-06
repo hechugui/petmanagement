@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="petmanagement.petmanagement.mapper.PetHubMapper" >
+  <resultMap id="BaseResultMap" type="petmanagement.petmanagement.entity.PetHub" >
+    <id column="hubid" property="hubid" jdbcType="INTEGER" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="primaryconnectorid" property="primaryconnectorid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    hubid, address, primaryconnectorid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pethub
+    where hubid = #{hubid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pethub
+    where hubid = #{hubid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="petmanagement.petmanagement.entity.PetHub" >
+    insert into pethub (hubid, address, primaryconnectorid
+      )
+    values (#{hubid,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{primaryconnectorid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="petmanagement.petmanagement.entity.PetHub" >
+    insert into pethub
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hubid != null" >
+        hubid,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="primaryconnectorid != null" >
+        primaryconnectorid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hubid != null" >
+        #{hubid,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="primaryconnectorid != null" >
+        #{primaryconnectorid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="petmanagement.petmanagement.entity.PetHub" >
+    update pethub
+    <set >
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="primaryconnectorid != null" >
+        primaryconnectorid = #{primaryconnectorid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where hubid = #{hubid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="petmanagement.petmanagement.entity.PetHub" >
+    update pethub
+    set address = #{address,jdbcType=VARCHAR},
+      primaryconnectorid = #{primaryconnectorid,jdbcType=INTEGER}
+    where hubid = #{hubid,jdbcType=INTEGER}
+  </update>
+</mapper>

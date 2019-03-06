@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="petmanagement.petmanagement.mapper.HubConnectorMapper" >
+  <resultMap id="BaseResultMap" type="petmanagement.petmanagement.entity.HubConnector" >
+    <id column="connectorid" property="connectorid" jdbcType="INTEGER" />
+    <result column="connectorname" property="connectorname" jdbcType="VARCHAR" />
+    <result column="connectorpassword" property="connectorpassword" jdbcType="VARCHAR" />
+    <result column="connectorphone" property="connectorphone" jdbcType="VARCHAR" />
+    <result column="connectoremail" property="connectoremail" jdbcType="VARCHAR" />
+    <result column="hubid" property="hubid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    connectorid, connectorname, connectorpassword, connectorphone, connectoremail, hubid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from hubconnector
+    where connectorid = #{connectorid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from hubconnector
+    where connectorid = #{connectorid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="petmanagement.petmanagement.entity.HubConnector" >
+    insert into hubconnector (connectorid, connectorname, connectorpassword, 
+      connectorphone, connectoremail, hubid
+      )
+    values (#{connectorid,jdbcType=INTEGER}, #{connectorname,jdbcType=VARCHAR}, #{connectorpassword,jdbcType=VARCHAR}, 
+      #{connectorphone,jdbcType=VARCHAR}, #{connectoremail,jdbcType=VARCHAR}, #{hubid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="petmanagement.petmanagement.entity.HubConnector" >
+    insert into hubconnector
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="connectorid != null" >
+        connectorid,
+      </if>
+      <if test="connectorname != null" >
+        connectorname,
+      </if>
+      <if test="connectorpassword != null" >
+        connectorpassword,
+      </if>
+      <if test="connectorphone != null" >
+        connectorphone,
+      </if>
+      <if test="connectoremail != null" >
+        connectoremail,
+      </if>
+      <if test="hubid != null" >
+        hubid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="connectorid != null" >
+        #{connectorid,jdbcType=INTEGER},
+      </if>
+      <if test="connectorname != null" >
+        #{connectorname,jdbcType=VARCHAR},
+      </if>
+      <if test="connectorpassword != null" >
+        #{connectorpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="connectorphone != null" >
+        #{connectorphone,jdbcType=VARCHAR},
+      </if>
+      <if test="connectoremail != null" >
+        #{connectoremail,jdbcType=VARCHAR},
+      </if>
+      <if test="hubid != null" >
+        #{hubid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="petmanagement.petmanagement.entity.HubConnector" >
+    update hubconnector
+    <set >
+      <if test="connectorname != null" >
+        connectorname = #{connectorname,jdbcType=VARCHAR},
+      </if>
+      <if test="connectorpassword != null" >
+        connectorpassword = #{connectorpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="connectorphone != null" >
+        connectorphone = #{connectorphone,jdbcType=VARCHAR},
+      </if>
+      <if test="connectoremail != null" >
+        connectoremail = #{connectoremail,jdbcType=VARCHAR},
+      </if>
+      <if test="hubid != null" >
+        hubid = #{hubid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where connectorid = #{connectorid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="petmanagement.petmanagement.entity.HubConnector" >
+    update hubconnector
+    set connectorname = #{connectorname,jdbcType=VARCHAR},
+      connectorpassword = #{connectorpassword,jdbcType=VARCHAR},
+      connectorphone = #{connectorphone,jdbcType=VARCHAR},
+      connectoremail = #{connectoremail,jdbcType=VARCHAR},
+      hubid = #{hubid,jdbcType=INTEGER}
+    where connectorid = #{connectorid,jdbcType=INTEGER}
+  </update>
+</mapper>
