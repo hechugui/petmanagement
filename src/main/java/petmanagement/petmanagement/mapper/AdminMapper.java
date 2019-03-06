@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 import petmanagement.petmanagement.entity.Admin;
 
 @Repository
+//@repository是数据层的bean
 public interface AdminMapper {
     int deleteByPrimaryKey(Integer adminid);
 

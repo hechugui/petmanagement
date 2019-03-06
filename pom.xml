@@ -25,11 +25,16 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.2.5</version>
         </dependency>
-        <!-- alibaba的druid数据库连接池 -->
+        <!-- alibaba的druid数据库连接池，好像大家都有，但是不大知道干什么用的 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.1.9</version>
+        </dependency>
+        <!--这里加上security了，以后建别的项目不要忘记了-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
         <dependency>
