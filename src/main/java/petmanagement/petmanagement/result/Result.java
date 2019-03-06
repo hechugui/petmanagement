@@ -26,7 +26,7 @@ public class Result {
      * 响应结果对象
      */
     private Object data;
-
+  //hello ,it 's me herer
     Result(int code, String message, Object data) {
         this.code = code;
         this.message = message;
