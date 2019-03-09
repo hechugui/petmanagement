@@ -36,27 +36,27 @@ public class PetController {
 @RequestMapping("/findPets")
 //这个方法感觉没什么用啊，是要所有的pet名单吗
 public List<Pet> findPets(){
-    List<Pet> findPets=null;
-    try{
-        findPets=petService.findPets();
-        //
-    }catch (Exception e){
+    List<Pet>
+}catch (Exception e){
         e.printStackTrace();
     }
     return findPets;//就是刚才那个list<pet>
 }
 
-@RequestMapping("/findPetByPid")
+    @RequestMapping("/findPetByPid")
 //有别于上面的找所有，这里只要一个，所以返回值不是list,而是个pet
     public Pet findPetByPid(int pid){
-    Pet pet=null;
+        Pet pet=null;
+        try{
+            pet=petService.findPetByPid(pid);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return pet;
+    }findPets=null;
     try{
-        pet=petService.findPetByPid(pid);
-    }catch (Exception e){
-        e.printStackTrace();
-    }
-    return pet;
-}
+        findPets=petService.findPets();
+        //
 
 
 @RequestMapping("/deletePet")

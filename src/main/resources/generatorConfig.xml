@@ -8,7 +8,12 @@
     <properties resource="jdbc.properties"></properties>
     <!-- 数据库驱动，注意，这里必须要修改成你的数据库的驱动地址-->
     <classPathEntry
-            location="/root/.m2/repository/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar"/>
+            location="C:\Users\root\.m2\repository\mysql\mysql-connector-java\5.1.31\mysql-connector-java-5.1.31.jar"/>
+    <!--C:\Users\root\.m2\repository\mysql\mysql-connector-java\5.1.31\mysql-connector-java-5.1.31.jar-->
+    <!--上面这个是win10 -->
+    <!--下面的是Linux-->
+    <!--<classPathEntry-->
+            <!--location="/root/.m2/repository/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar"/>-->
 <!--这里，记得context是数据库名字，一个名字对于一个context-->
     <context id="petmanagement">
         <commentGenerator>
